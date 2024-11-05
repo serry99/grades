@@ -110,3 +110,20 @@ summary_stats <- summarize(grades_per_student,
 # Display the summary statistics in a Markdown table
 kable(summary_stats, caption = "Summary Statistics of Grades per Student")
 ```
+
+
+# Question 9
+```{r}
+# Filter for the specific course
+energy_harvesting_grades <- grades %>%
+  filter(course == "Energy Harvesting and Sustainability")
+
+# Count the number of grades per student and group
+grades_per_student_energy <- energy_harvesting_grades %>%
+  group_by(id) %>%
+  summarize(num_grades = n())
+
+# Display a small extract of the DataFrame
+kable(head(grades_per_student_energy, 10))
+```
+
