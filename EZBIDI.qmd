@@ -51,6 +51,28 @@ ggplot(students, aes(x = group)) +
        y = "Number of Students")
 ```
 
+# Question 6
+
+```{r}
+students_vr <- grades %>%
+  filter(course == "Virtual Reality and Simulated Environments")
+```
+
+```{r}
+students_vr_grouped <- students_vr %>%
+  group_by(group) %>%
+  summarize(avg_grade = mean(grade))
+```
+
+```{r}
+ggplot(students_vr_grouped, aes(x = group, y = avg_grade)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Average Grade in Virtual Reality and Simulated Environments per Group",
+       x = "Group",
+       y = "Average Grade")
+```
+
+
 
 
 
