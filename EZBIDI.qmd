@@ -89,8 +89,24 @@ ggplot(students_vr_grouped, aes(x = group, y = avg_grade, fill = factor(semester
        fill = "Semester")
 ```
 
+# Question 8
+```{r}
+library(knitr)
 
 
 
+# Count the number of grades per student
+grades_per_student <- grades %>%
+  group_by(id) %>%
+  summarize(num_grades = n())
 
+# Calculate summary statistics for the number of grades per student
+summary_stats <- summarize(grades_per_student,
+                            min_grades = min(num_grades),
+                            max_grades = max(num_grades),
+                            mean_grades = mean(num_grades),
+                            median_grades = median(num_grades))
 
+# Display the summary statistics in a Markdown table
+kable(summary_stats, caption = "Summary Statistics of Grades per Student")
+```
