@@ -73,6 +73,22 @@ ggplot(students_vr_grouped, aes(x = group, y = avg_grade)) +
 ```
 
 
+# question 7
+```{r}
+# Calculate average grade per group and semester
+students_vr_grouped <- students_vr %>%
+  group_by(group, semester) %>%
+  summarize(avg_grade = mean(grade))
+
+# Create a bar chart to compare average grades by group and semester
+ggplot(students_vr_grouped, aes(x = group, y = avg_grade, fill = factor(semester))) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(title = "Average Grade in Virtual Reality and Simulated Environments by Group and Semester",
+       x = "Group",
+       y = "Average Grade",
+       fill = "Semester")
+```
+
 
 
 
