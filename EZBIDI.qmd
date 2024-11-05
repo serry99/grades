@@ -4,3 +4,28 @@ author: "EZBIDI"
 format: html
 ---
 
+```{r}
+library(readr)
+here:: i_am("grades.Rproj")
+library(here)
+grades <- read_csv(here("grades.csv"))
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(stringr)
+```
+
+```{r}
+nrow(grades)
+```
+
+
+# Question 2
+The data set contains 44039 grades.
+
+
+
+
+
+
+
