@@ -126,4 +126,23 @@ grades_per_student_energy <- energy_harvesting_grades %>%
 # Display a small extract of the DataFrame
 kable(head(grades_per_student_energy, 10))
 ```
+# Q10
+```{r}
+# Filter for the specific course
+energy_harvesting_grades <- grades %>%
+  filter(course == "Energy Harvesting and Sustainability")
+
+# Count the number of grades per student and group
+grades_per_student_energy <- energy_harvesting_grades %>%
+  group_by(id) %>%
+  summarize(num_grades = n())
+
+# Create a histogram to visualize the distribution
+ggplot(grades_per_student_energy, aes(x = num_grades)) +
+  geom_histogram(binwidth = 1, fill = "steelblue", color = "black") +
+  labs(title = "Distribution of Grades per Student in Energy Harvesting and Sustainability",
+       x = "Number of Grades",
+       y = "Number of Students")
+```
+
 
