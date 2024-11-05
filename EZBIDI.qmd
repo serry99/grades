@@ -15,13 +15,24 @@ library(ggplot2)
 library(stringr)
 ```
 
+
+
+
+# Question 2
 ```{r}
 nrow(grades)
 ```
 
-
-# Question 2
 The data set contains 44039 grades.
+
+# Question 3
+```{r}
+grades |> distinct(id) |> count()
+```
+
+The data set contains 796	students.
+
+# Question 4
 
 
 
