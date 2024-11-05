@@ -42,6 +42,16 @@ students |>
   knitr::kable()
 ```
 
+# Question 5
+```{r}
+ggplot(students, aes(x = group)) +
+  geom_bar() +
+  labs(title = "Distribution of Students by Group",
+       x = "Group",
+       y = "Number of Students")
+```
+
+
 
 
 
