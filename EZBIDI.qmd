@@ -33,8 +33,14 @@ grades |> distinct(id) |> count()
 The data set contains 796	students.
 
 # Question 4
-
-
+```{r}
+students <- grades %>%
+  distinct(id, .keep_all = TRUE) %>%
+  select(id, group)
+students |>
+  slice_tail(n=5) |> 
+  knitr::kable()
+```
 
 
 
