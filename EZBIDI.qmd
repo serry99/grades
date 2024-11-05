@@ -145,4 +145,25 @@ ggplot(grades_per_student_energy, aes(x = num_grades)) +
        y = "Number of Students")
 ```
 
+#Q11
+```{r}
+# Filter for the specific course
+energy_harvesting_grades <- grades %>%
+  filter(course == "Energy Harvesting and Sustainability")
+
+# Count the number of grades per student and group
+grades_per_student_energy <- energy_harvesting_grades %>%
+  group_by(id, group) %>%
+  summarize(num_grades = n())
+```
+
+```{r}
+# Visualize the distribution of grades per group
+ggplot(grades_per_student_energy, aes(x = group, y = num_grades)) +
+  geom_boxplot() +
+  labs(title = "Distribution of Grades per Student by Group",
+       x = "Group",
+       y = "Number of Grades")
+```
+
 
